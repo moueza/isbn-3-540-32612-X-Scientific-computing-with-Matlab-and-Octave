@@ -1,23 +1,29 @@
 %https://docs.octave.org/v9.2.0/Script-Files.html
-%source("/var/www/html/isbn-3-540-32612-X-Scientific-computing-with-Matlab-and-Octave/snake-delete-handle.m")
+%source("/var/www/html/isbn-3-540-32612-X-Scientific-computing-with-Matlab-and-Octave/snake-delete-handle-WIP.m")
 1;
 
 t = 0:0.1:10*pi;
 r = linspace (0, 1, numel (t));
 z = linspace (0, 1, numel (t));
 
-NbSegments= 300;
+T = r.*sin (t);
+R = r.*cos (t);
+Z = z;
+
+NbSegments= 100;
 
 
 for i = 1:NbSegments
 				%fib(i) = fib(i-1) + fib(i-2);
-  tt0=t(i);
-  rr0=r(i);
-  zz0=z(i);
+  printf( "%i\n",i)
+  
+  tt0=T(i);
+  rr0=R(i);
+  zz0=Z(i);
 
-  tt2=t(i+1);
-  rr2=r(i+1);
-  zz2=z(i+1);
+  tt2=T(i+1);
+  rr2=R(i+1);
+  zz2=Z(i+1);
 
 
   
@@ -31,7 +37,7 @@ for i = 1:NbSegments
   zz(2)=zz2;
   
 
-  plot3 (rr.*sin (tt), rr.*cos (tt), zz);
+  plot3 (tt, rr, zz);
   
 endfor
 
