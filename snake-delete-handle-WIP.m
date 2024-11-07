@@ -1,8 +1,14 @@
 %https://docs.octave.org/v9.2.0/Script-Files.html
 %source("/var/www/html/isbn-3-540-32612-X-Scientific-computing-with-Matlab-and-Octave/snake-delete-handle-WIP.m")
 1;
+clf();
+gcf();
 
-t = 0:0.1:10*pi;
+NbSegments= 100;
+
+Tmax=10*pi;
+eps=Tmax/NbSegments;
+t = 0:eps:Tmax;
 r = linspace (0, 1, numel (t));
 z = linspace (0, 1, numel (t));
 
@@ -10,7 +16,6 @@ T = r.*sin (t);
 R = r.*cos (t);
 Z = z;
 
-NbSegments= 100;
 
 
 for i = 1:NbSegments
@@ -37,8 +42,7 @@ for i = 1:NbSegments
   zz(2)=zz2;
   
 
-  plot3 (tt, rr, zz);
-  
+  plot3 (tt, rr, zz);%1 segment for future handle  
 endfor
 
 
